@@ -1,6 +1,6 @@
 export const APP_CONFIG = {
   name: "IndahTrack",
-  tagline: "Pantau semua lamaran kerja Indah. Aku bantu rapikan biar gak pusing.",
+  tagline: "Pantau semua lamaran kerja Indah. Aku bantu rapihin biar gak pusing.",
   description: "Personal job tracker & analytics platform yang kubuat spesial buat nemenin proses hunting kerjaan Indah sampai dapet offering impian.",
   version: "0.2.0",
 }

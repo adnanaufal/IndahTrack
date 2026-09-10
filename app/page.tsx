@@ -10,7 +10,6 @@ import {
   Kanban,
   CheckCircle2,
   Clock,
-  ShieldCheck,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -37,12 +36,6 @@ export default function LandingPage() {
       title: "Follow-up & Reminder Pengingat",
       description:
         "Biar kamu nggak lupa follow-up recruiter, siap interview, dan tetap semangat.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Pribadi & Aman Terlindungi",
-      description:
-        "Semua data lamaran dan ekspektasi gaji kamu tersimpan privat dengan Row Level Security. Aman dan hanya bisa diakses oleh kamu.",
     },
   ]
 
@@ -172,7 +165,7 @@ export default function LandingPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {features.map((feat, idx) => {
               const Icon = feat.icon
               return (
