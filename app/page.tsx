@@ -99,6 +99,12 @@ export default function LandingPage() {
               Pakai IndahTrack untuk menyusun recruitment pipeline, memantau tahapan interview, dan meraih offering impian kamu.
             </p>
 
+            <div className="inline-block p-px rounded-2xl bg-gradient-to-r from-rose-500/30 via-primary/40 to-amber-500/30 shadow-xs">
+              <div className="px-5 py-2.5 rounded-[15px] bg-card/90 backdrop-blur-md text-xs sm:text-sm font-medium tracking-wide text-foreground/90">
+                ✨ &ldquo;Semoga perjuangan mu hari ini akan terbayar <span className="text-primary font-bold">INDAH</span> di <span className="text-primary font-bold">MASA DEPAN</span>&rdquo;
+              </div>
+            </div>
+
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <Link href="/login" className="w-full sm:w-auto">
