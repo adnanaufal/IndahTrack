@@ -92,7 +92,7 @@ export default function RegisterPage() {
               <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Indah Permata"
+                placeholder="Indah Syacharani"
                 className="pl-9 text-xs sm:text-sm h-9"
                 disabled={isLoading}
                 {...register("fullName")}
