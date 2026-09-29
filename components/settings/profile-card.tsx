@@ -57,9 +57,6 @@ export function ProfileCard({ fullName, firstName, email }: ProfileCardProps) {
           <User className="h-4 w-4 text-primary" />
           <CardTitle className="text-base font-semibold">Profil {firstName}</CardTitle>
         </div>
-        <CardDescription className="text-xs">
-          Informasi akun yang terhubung ke database privat {firstName}
-        </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="flex items-center gap-3.5 pb-4 mb-4 border-b border-border/60">

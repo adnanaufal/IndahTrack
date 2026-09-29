@@ -93,6 +93,10 @@ export interface StageOption {
   position: number
 }
 
+function cleanStageName(name: string): string {
+  return name.replace(/\s*\([nN]aksir[^\)]*\)/gi, "").trim()
+}
+
 // 1. Get all applications for the logged in user
 export async function getApplicationsAction(): Promise<{
   success: boolean
@@ -123,9 +127,19 @@ export async function getApplicationsAction(): Promise<{
       return { success: false, error: error.message }
     }
 
+    const applications = ((data as unknown as ApplicationWithDetails[]) || []).map((app) => ({
+      ...app,
+      stage: app.stage
+        ? {
+            ...app.stage,
+            name: cleanStageName(app.stage.name),
+          }
+        : app.stage,
+    }))
+
     return {
       success: true,
-      data: (data as unknown as ApplicationWithDetails[]) || [],
+      data: applications,
     }
   } catch (err) {
     return {
@@ -195,11 +209,31 @@ export async function getApplicationDetailAction(id: string): Promise<{
       .eq("application_id", id)
       .order("due_at", { ascending: true })
 
+    const sanitizedApp = {
+      ...(appData as unknown as ApplicationWithDetails),
+      stage: appData.stage
+        ? {
+            ...appData.stage,
+            name: cleanStageName(appData.stage.name),
+          }
+        : appData.stage,
+    }
+
+    const sanitizedEvents = ((eventsData as unknown as ApplicationEventItem[]) || []).map((ev) => ({
+      ...ev,
+      stage: ev.stage
+        ? {
+            ...ev.stage,
+            name: cleanStageName(ev.stage.name),
+          }
+        : ev.stage,
+    }))
+
     return {
       success: true,
       data: {
-        ...(appData as unknown as ApplicationWithDetails),
-        events: (eventsData as unknown as ApplicationEventItem[]) || [],
+        ...sanitizedApp,
+        events: sanitizedEvents,
         interviews: (interviewsData as unknown as InterviewItem[]) || [],
         follow_ups: (followUpsData as unknown as FollowUpSummaryItem[]) || [],
       },
@@ -298,7 +332,12 @@ export async function getPipelineStagesAction(): Promise<{
       return { success: false, error: error.message }
     }
 
-    return { success: true, data: data || [] }
+    const sanitized = (data || []).map((s) => ({
+      ...s,
+      name: cleanStageName(s.name),
+    }))
+
+    return { success: true, data: sanitized }
   } catch (err) {
     return { success: false, error: "Gagal mengambil tahapan pipeline." }
   }

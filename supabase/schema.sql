@@ -331,7 +331,7 @@ CREATE POLICY "Users can delete own interviews" ON public.interviews FOR DELETE 
 -- 6. SEED DATA (14 DEFAULT SYSTEM STAGES)
 INSERT INTO public.pipeline_stages (name, slug, stage_type, position, is_system, is_active)
 VALUES
-  ('Wishlist (Naksir)', 'wishlist', 'active', 1, TRUE, TRUE),
+  ('Wishlist', 'wishlist', 'active', 1, TRUE, TRUE),
   ('Applied (Udah Kirim)', 'applied', 'active', 2, TRUE, TRUE),
   ('Screening (Disaring HR)', 'screening', 'active', 3, TRUE, TRUE),
   ('HR Interview', 'hr-interview', 'active', 4, TRUE, TRUE),

@@ -111,7 +111,7 @@ export default function LandingPage() {
               </Link>
               <Link href="/register" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full text-sm font-medium">
-                  <span>Buat Akun Pribadi</span>
+                  <span>Signup</span>
                 </Button>
               </Link>
             </div>

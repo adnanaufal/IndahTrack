@@ -167,9 +167,6 @@ export function Sidebar({ className }: { className?: string }) {
               <span className="text-sm font-semibold text-foreground truncate flex items-center gap-1">
                 {userName}
               </span>
-              <span className="text-[11px] text-muted-foreground truncate">
-                Ruang Kerja Pribadi
-              </span>
             </div>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-transform group-hover:translate-x-0.5" />

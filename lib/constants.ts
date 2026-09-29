@@ -69,7 +69,7 @@ export const MOBILE_NAV_ITEMS = [
 ]
 
 export const DEFAULT_PIPELINE_STAGES = [
-  { id: "wishlist", name: "Wishlist (Naksir Posisi Ini)", slug: "wishlist", type: "active", position: 1 },
+  { id: "wishlist", name: "Wishlist", slug: "wishlist", type: "active", position: 1 },
   { id: "applied", name: "Applied (Sudah Submit)", slug: "applied", type: "active", position: 2 },
   { id: "screening", name: "Screening (Sedang Direview HR)", slug: "screening", type: "active", position: 3 },
   { id: "hr_interview", name: "HR Interview", slug: "hr-interview", type: "active", position: 4 },
