@@ -115,46 +115,46 @@ export function ApplicationTrendChart({ data }: ApplicationTrendChartProps) {
               >
                 <defs>
                   <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.35} />
-                    <stop offset="95%" stopColor="var(--primary)" stopOpacity={0.0} />
+                    <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.4} />
+                    <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0.0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid
                   strokeDasharray="3 3"
                   vertical={false}
-                  stroke="var(--border)"
-                  opacity={0.6}
+                  stroke="hsl(var(--border))"
+                  opacity={0.5}
                 />
                 <XAxis
                   dataKey="label"
-                  stroke="var(--muted-foreground)"
-                  fontSize={11}
+                  stroke="hsl(var(--border))"
+                  tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }}
                   tickLine={false}
                   axisLine={false}
                 />
                 <YAxis
                   allowDecimals={false}
-                  stroke="var(--muted-foreground)"
-                  fontSize={11}
+                  stroke="hsl(var(--border))"
+                  tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }}
                   tickLine={false}
                   axisLine={false}
                 />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "var(--card)",
-                    borderColor: "var(--border)",
+                    backgroundColor: "hsl(var(--card))",
+                    borderColor: "hsl(var(--border))",
                     borderRadius: "0.75rem",
                     fontSize: "0.75rem",
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
                   }}
-                  itemStyle={{ color: "var(--foreground)", fontWeight: 600 }}
-                  labelStyle={{ color: "var(--muted-foreground)", marginBottom: 4 }}
+                  itemStyle={{ color: "hsl(var(--foreground))", fontWeight: 600 }}
+                  labelStyle={{ color: "hsl(var(--muted-foreground))", marginBottom: 4 }}
                   formatter={(value: any) => [`${value} Lamaran`, "Terkirim"]}
                 />
                 <Area
                   type="monotone"
                   dataKey="count"
-                  stroke="var(--primary)"
+                  stroke="hsl(var(--primary))"
                   strokeWidth={2.5}
                   fillOpacity={1}
                   fill="url(#colorCount)"

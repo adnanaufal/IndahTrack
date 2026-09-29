@@ -206,12 +206,12 @@ export async function getInsightsStatsAction(): Promise<{
     })
 
     const paletteColors = [
-      "#be185d", // rich berry rose
-      "#9d174d", // deep rose
-      "#78350f", // warm amber brown
-      "#92400e", // mocha
-      "#b45309", // caramel
-      "#451a03", // dark espresso
+      "#f472b6", // vibrant rose pink
+      "#f59e0b", // luminous warm amber
+      "#fbbf24", // golden honey
+      "#fb923c", // bright apricot
+      "#10b981", // emerald green
+      "#38bdf8", // soft sky cyan
     ]
 
     const sources: SourceMetricItem[] = Object.entries(sourceMap)

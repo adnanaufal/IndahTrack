@@ -253,11 +253,11 @@ export async function getDashboardStatsAction(): Promise<{
     })
 
     const statusColors: Record<string, string> = {
-      "Sedang Proses": "#78350f", // rich warm mocha brown
-      "Tahap Interview": "#be185d", // vibrant dusty rose pink
-      "Offering Letter": "#d97706", // warm honey amber gold
-      "Diterima (Accepted)": "#059669", // emerald victory
-      "Belum Jodoh": "#9f1239", // deep ruby berry rose
+      "Sedang Proses": "#f59e0b", // luminous warm amber latte
+      "Tahap Interview": "#f472b6", // vibrant glowing rose pink
+      "Offering Letter": "#fbbf24", // golden warm honey
+      "Diterima (Accepted)": "#10b981", // bright emerald victory
+      "Belum Jodoh": "#f43f5e", // rose coral red
     }
 
     const statusDistribution = Object.entries(statusMap)
@@ -265,7 +265,7 @@ export async function getDashboardStatsAction(): Promise<{
       .map(([name, value]) => ({
         name,
         value,
-        color: statusColors[name] || "#78350f",
+        color: statusColors[name] || "#f59e0b",
       }))
 
     // -------------------------------------------------------------
@@ -288,27 +288,27 @@ export async function getDashboardStatsAction(): Promise<{
       {
         stage: "Lamaran Terkirim (Applied)",
         count: totalApplications,
-        color: "#78350f", // rich mocha chocolate
+        color: "#f59e0b", // luminous warm amber latte
       },
       {
         stage: "Lolos Screening",
         count: screeningCount.size,
-        color: "#b45309", // warm caramel amber
+        color: "#fb923c", // bright warm apricot
       },
       {
         stage: "Panggilan Interview",
         count: interviewsCount,
-        color: "#be185d", // vibrant rose pink
+        color: "#f472b6", // vibrant glowing rose pink
       },
       {
         stage: "Offering Letter",
         count: offersCount,
-        color: "#d97706", // golden honey
+        color: "#fbbf24", // golden honey
       },
       {
         stage: "Diterima Bekerja",
         count: acceptedCount,
-        color: "#059669", // emerald leaf
+        color: "#10b981", // vibrant emerald
       },
     ]
 

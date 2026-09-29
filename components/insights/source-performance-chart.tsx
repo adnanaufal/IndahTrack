@@ -52,32 +52,33 @@ export function SourcePerformanceChart({ sources }: SourcePerformanceChartProps)
                 <CartesianGrid
                   strokeDasharray="3 3"
                   vertical={false}
-                  stroke="var(--border)"
-                  opacity={0.6}
+                  stroke="hsl(var(--border))"
+                  opacity={0.5}
                 />
                 <XAxis
                   dataKey="name"
-                  stroke="var(--muted-foreground)"
-                  fontSize={11}
+                  stroke="hsl(var(--border))"
+                  tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }}
                   tickLine={false}
                   axisLine={false}
                 />
                 <YAxis
                   allowDecimals={false}
-                  stroke="var(--muted-foreground)"
-                  fontSize={11}
+                  stroke="hsl(var(--border))"
+                  tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }}
                   tickLine={false}
                   axisLine={false}
                 />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "var(--card)",
-                    borderColor: "var(--border)",
+                    backgroundColor: "hsl(var(--card))",
+                    borderColor: "hsl(var(--border))",
                     borderRadius: "0.75rem",
                     fontSize: "0.75rem",
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
                   }}
-                  itemStyle={{ fontWeight: 600 }}
+                  itemStyle={{ color: "hsl(var(--foreground))", fontWeight: 600 }}
+                  labelStyle={{ color: "hsl(var(--muted-foreground))", marginBottom: 4 }}
                   formatter={(value: any, name: any) => [
                     `${value} Lamaran`,
                     name === "applied" ? "Diajukan" : "Lolos Interview",
@@ -87,20 +88,20 @@ export function SourcePerformanceChart({ sources }: SourcePerformanceChartProps)
                   verticalAlign="top"
                   align="right"
                   iconType="circle"
-                  wrapperStyle={{ fontSize: "11px", paddingBottom: "8px" }}
+                  wrapperStyle={{ fontSize: "11px", paddingBottom: "8px", color: "hsl(var(--foreground))" }}
                   formatter={(value) =>
                     value === "applied" ? "Diajukan" : "Lolos Interview"
                   }
                 />
                 <Bar
                   dataKey="applied"
-                  fill="#78350f" // rich warm mocha brown
+                  fill="#f59e0b" // warm luminous amber latte
                   radius={[4, 4, 0, 0]}
                   barSize={18}
                 />
                 <Bar
                   dataKey="interview"
-                  fill="#be185d" // vibrant dusty rose pink
+                  fill="#f472b6" // vibrant glowing rose pink
                   radius={[4, 4, 0, 0]}
                   barSize={18}
                 />

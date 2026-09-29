@@ -72,6 +72,9 @@ export default function DashboardPage() {
 
   React.useEffect(() => {
     loadData()
+    const handleCreated = () => loadData()
+    window.addEventListener("application:created", handleCreated)
+    return () => window.removeEventListener("application:created", handleCreated)
   }, [loadData])
 
   const handleSelectRecentApp = (app: ApplicationWithDetails) => {

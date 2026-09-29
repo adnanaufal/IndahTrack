@@ -74,7 +74,7 @@ export function ApplicationTableView({
     <Card className="overflow-hidden border-border/80 shadow-xs">
       <CardContent className="p-0">
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-xs sm:text-sm">
+          <table className="w-full min-w-[580px] text-left border-collapse text-xs sm:text-sm">
             <thead>
               <tr className="border-b border-border/60 bg-muted/40 text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
                 <th className="py-3 px-4 sm:px-6">Perusahaan & Posisi</th>

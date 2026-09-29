@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { NAV_SECTIONS, APP_CONFIG } from "@/lib/constants"
 import { createClient } from "@/lib/supabase/client"
+import { useAddApplication } from "@/components/applications/add-application-context"
 
 const ICON_MAP: Record<string, React.ElementType> = {
   LayoutDashboard,
@@ -32,6 +33,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
 
 export function Sidebar({ className }: { className?: string }) {
   const pathname = usePathname()
+  const { openAddApplication } = useAddApplication()
   const [userName, setUserName] = React.useState<string>("Indah")
   const [userInitial, setUserInitial] = React.useState<string>("I")
 
@@ -89,14 +91,13 @@ export function Sidebar({ className }: { className?: string }) {
 
       {/* Primary Action Button */}
       <div className="p-4 pb-2">
-        <Link href="/applications?new=true" className="w-full block">
-          <Button
-            className="w-full justify-center gap-2 font-semibold shadow-sm hover:shadow transition-all group bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm h-10 rounded-xl"
-          >
-            <Plus className="h-4 w-4 transition-transform group-hover:rotate-90 duration-200" />
-            <span>Tambah Lamaran Baru</span>
-          </Button>
-        </Link>
+        <Button
+          onClick={() => openAddApplication()}
+          className="w-full justify-center gap-2 font-semibold shadow-sm hover:shadow transition-all group bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm h-10 rounded-xl"
+        >
+          <Plus className="h-4 w-4 transition-transform group-hover:rotate-90 duration-200" />
+          <span>Tambah Lamaran Baru</span>
+        </Button>
       </div>
 
       {/* Navigation Sections */}

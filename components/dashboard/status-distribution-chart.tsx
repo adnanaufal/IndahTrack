@@ -41,20 +41,20 @@ export function StatusDistributionChart({ data }: StatusDistributionChartProps) 
             </p>
           </div>
         ) : (
-          <div className="flex flex-col sm:flex-row items-center gap-4 h-56">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 min-h-[220px]">
             {/* Donut Chart */}
-            <div className="w-full sm:w-1/2 h-full">
+            <div className="w-full sm:w-1/2 h-44 sm:h-56 shrink-0">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: "var(--card)",
-                      borderColor: "var(--border)",
+                      backgroundColor: "hsl(var(--card))",
+                      borderColor: "hsl(var(--border))",
                       borderRadius: "0.75rem",
                       fontSize: "0.75rem",
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                      boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
                     }}
-                    itemStyle={{ color: "var(--foreground)", fontWeight: 600 }}
+                    itemStyle={{ color: "hsl(var(--foreground))", fontWeight: 600 }}
                     formatter={(value: any, name: any) => [
                       `${value} (${Math.round(((value as number) / total) * 100)}%)`,
                       name,
@@ -64,13 +64,18 @@ export function StatusDistributionChart({ data }: StatusDistributionChartProps) 
                     data={data}
                     cx="50%"
                     cy="50%"
-                    innerRadius={50}
-                    outerRadius={75}
+                    innerRadius={45}
+                    outerRadius={70}
                     paddingAngle={3}
                     dataKey="value"
                   >
                     {data.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={entry.color}
+                        stroke="hsl(var(--card))"
+                        strokeWidth={2}
+                      />
                     ))}
                   </Pie>
                 </PieChart>
@@ -78,26 +83,26 @@ export function StatusDistributionChart({ data }: StatusDistributionChartProps) 
             </div>
 
             {/* Custom Legend List */}
-            <div className="w-full sm:w-1/2 space-y-2 overflow-y-auto max-h-48 pr-1">
+            <div className="w-full sm:w-1/2 space-y-2 py-1">
               {data.map((item) => {
                 const percentage = Math.round((item.value / total) * 100)
                 return (
                   <div
                     key={item.name}
-                    className="flex items-center justify-between text-xs py-0.5"
+                    className="flex items-center justify-between text-xs py-1 px-1.5 rounded-lg hover:bg-muted/40 transition-colors"
                   >
-                    <div className="flex items-center gap-2 min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <span
-                        className="h-2.5 w-2.5 rounded-full shrink-0"
+                        className="h-3 w-3 rounded-full shrink-0 shadow-2xs ring-1 ring-border/50"
                         style={{ backgroundColor: item.color }}
                       />
-                      <span className="text-muted-foreground truncate font-medium">
+                      <span className="text-foreground/90 truncate font-semibold">
                         {item.name}
                       </span>
                     </div>
                     <div className="flex items-center gap-1.5 shrink-0 ml-2">
                       <span className="font-bold text-foreground">{item.value}</span>
-                      <span className="text-[10px] text-muted-foreground">
+                      <span className="text-[11px] text-muted-foreground">
                         ({percentage}%)
                       </span>
                     </div>

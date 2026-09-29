@@ -53,8 +53,21 @@ function ApplicationsContent() {
   const [stages, setStages] = React.useState<StageOption[]>([])
   const [loading, setLoading] = React.useState(true)
 
-  // View Mode: Table vs Card
+  // View Mode: Table vs Card (Default to Card on mobile for optimal UX)
   const [viewMode, setViewMode] = React.useState<"table" | "card">("table")
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setViewMode("card")
+    }
+  }, [])
+
+  // Listen to searchParams ?new=true
+  React.useEffect(() => {
+    if (searchParams.get("new") === "true") {
+      setIsAddOpen(true)
+    }
+  }, [searchParams])
 
   // Search & Filter State
   const [searchQuery, setSearchQuery] = React.useState("")
@@ -100,6 +113,9 @@ function ApplicationsContent() {
 
   React.useEffect(() => {
     loadData()
+    const handleCreated = () => loadData()
+    window.addEventListener("application:created", handleCreated)
+    return () => window.removeEventListener("application:created", handleCreated)
   }, [loadData])
 
   // Open Drawer handler

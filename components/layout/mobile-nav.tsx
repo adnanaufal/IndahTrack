@@ -11,14 +11,16 @@ import {
   BarChart3,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useAddApplication } from "@/components/applications/add-application-context"
 
 export function MobileNav({ className }: { className?: string }) {
   const pathname = usePathname()
+  const { openAddApplication } = useAddApplication()
 
   const navItems = [
     { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
     { label: "Jobs", href: "/applications", icon: Briefcase },
-    { label: "Add", href: "/applications?new=true", icon: Plus, isAction: true },
+    { label: "Add", href: "#", icon: Plus, isAction: true },
     { label: "Pipeline", href: "/pipeline", icon: Kanban },
     { label: "Insights", href: "/insights", icon: BarChart3 },
   ]
@@ -40,18 +42,20 @@ export function MobileNav({ className }: { className?: string }) {
 
           if (item.isAction) {
             return (
-              <Link
+              <button
                 key={item.label}
-                href={item.href}
-                className="flex flex-col items-center justify-center -mt-4 group"
+                type="button"
+                onClick={() => openAddApplication()}
+                className="flex flex-col items-center justify-center -mt-4 group cursor-pointer focus:outline-none"
+                aria-label="Tambah Lamaran Baru"
               >
                 <div className="h-11 w-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg border-2 border-background group-hover:scale-105 active:scale-95 transition-all">
                   <Icon className="h-5 w-5 stroke-[2.5]" />
                 </div>
-                <span className="text-[10px] font-medium text-muted-foreground mt-0.5">
+                <span className="text-[10px] font-medium text-muted-foreground mt-0.5 group-hover:text-foreground transition-colors">
                   {item.label}
                 </span>
-              </Link>
+              </button>
             )
           }
 

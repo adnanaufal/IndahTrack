@@ -80,6 +80,9 @@ export default function PipelinePage() {
 
   React.useEffect(() => {
     loadData()
+    const handleCreated = () => loadData()
+    window.addEventListener("application:created", handleCreated)
+    return () => window.removeEventListener("application:created", handleCreated)
   }, [loadData])
 
   // Filter applications by search query
